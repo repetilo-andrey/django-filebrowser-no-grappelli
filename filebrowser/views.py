@@ -34,7 +34,7 @@ from filebrowser.conf import fb_settings
 from filebrowser.functions import path_to_url, sort_by_attr, get_path, get_file, get_version_path, get_breadcrumbs, get_filterdate, get_settings_var, handle_file_upload, convert_filename
 from filebrowser.templatetags.fb_tags import query_helper
 from filebrowser.base import FileObject
-from filebrowser.decorators import flash_login_required
+
 
 # Precompile regular expressions
 filter_re = []
@@ -283,7 +283,6 @@ filebrowser_pre_upload = Signal(providing_args=["path", "file"])
 filebrowser_post_upload = Signal(providing_args=["path", "file"])
 
 @csrf_exempt
-@flash_login_required
 @staff_member_required
 def _upload_file(request):
     """
